@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rastgele Sayı Üretici</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="range"] {
+            width: 200px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <label for="min">Minimum Değer:</label>
+        <input type="range" id="min" value="0" min="0" max="100" step="1">
+        <br>
+        <label for="max">Maksimum Değer:</label>
+        <input type="range" id="max" value="100" min="0" max="100" step="1">
+        <br>
+        <button onclick="generateRandomNumber()">Rastgele Sayı Üret</button>
+        <br>
+        <label for="result">Rastgele Sayı:</label>
+        <span id="result">-</span>
+    </div>
+
+    <script>
+        function generateRandomNumber() {
+            var min = parseInt(document.getElementById("min").value);
+            var max = parseInt(document.getElementById("max").value);
+            var randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+            document.getElementById("result").textContent = randomNumber;
+        }
+    </script>
+</body>
+
+</html>
